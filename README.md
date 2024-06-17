@@ -1,6 +1,11 @@
 ### Click below link to see live demo for our project🔗
 https://react-ai-chatbot.netlify.app/
 
+## Setup
+[ai chatbot becodewala.pdf](https://github.com/user-attachments/files/15870642/ai.chatbot.becodewala.pdf)
+
+
+
 
 ## **Click on below image to watch tutorial** 👇
 
