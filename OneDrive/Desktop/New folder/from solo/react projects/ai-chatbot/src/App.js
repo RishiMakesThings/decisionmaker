@@ -19,7 +19,7 @@ function App() {
       try {
         setLoading(true);
         const response = await axios.post(
-          'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=AIzaSyDrVIPDHsIH9ASP3QZHm3-u2a49Au-X0GI',
+          'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=YOUR_API_KEY',
           {
             "contents": [
               {
