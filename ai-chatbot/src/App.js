@@ -7,8 +7,18 @@ import './App.css'
 
 function App() {
   const [messages, setMessages] = useState([]);
-  const [input, setInput] = useState('what is ai');
+  const [input, setInput] = useState('What can you do??!?!!');
   const [loading, setLoading] = useState(false);
+
+  /*
+  && (
+            <div class="rhombus">
+            <div class="circle1"></div>
+            <div class="circle2"></div>
+        </div>
+          )
+
+  */
 
   const handleSendMessage = async () => {
     if (input.trim()) {
@@ -18,20 +28,7 @@ function App() {
 
       try {
         setLoading(true);
-        const response = await axios.post(
-          'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=YOUR_API_KEY',
-          {
-            "contents": [
-              {
-                "parts": [
-                  {
-                    "text": input
-                  }
-                ]
-              }
-            ]
-          }
-        );
+        const response = await axios.post("/.netlify/functions/generateResponse", { input });
         console.log(response);
         const botResponse = response.data.candidates[0].content.parts[0].text;
         setLoading(false);
@@ -45,8 +42,8 @@ function App() {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center h-screen bg-gradient-to-r from-green-400 to-blue-500">
-      <h1 className="mb-8 font-bold text-[3rem] drop-shadow-lg text-blue-50">AI ChatBot</h1>
+    <div className="flex flex-col justify-center items-center h-screen bg-gradient-to-r from-red-950 to-blue-900">
+      <h1 className="mb-8 font-bold text-[3rem] drop-shadow-lg text-blue-50">♥️ Rhea DecisionMaker9000  ♥️</h1>
       <div className="bg-white w-full max-w-lg shadow-lg rounded-lg overflow-hidden">
         <div className="p-4 h-96 overflow-y-auto">
           {messages.map((msg, index) => (
@@ -58,23 +55,13 @@ function App() {
               </div>
             </div>
           ))}
-          {loading && (
-            <div class="wrapper">
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="shadow"></div>
-            <div class="shadow"></div>
-            <div class="shadow"></div>
-            <span>Loading</span>
-        </div>
-          )}
+          {loading}
         </div>
         <div className="p-4 border-t border-gray-200 flex">
           <input
             type="text"
             className="flex-1 p-2 border border-gray-300 rounded-lg outline-none"
-            placeholder="Type your message..."
+            placeholder="Ask about a choice!"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
