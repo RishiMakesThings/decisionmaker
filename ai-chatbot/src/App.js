@@ -30,8 +30,8 @@ function App() {
         setLoading(true);
         console.log(input)
         const response = await axios.post("https://decisionbot.netlify.app/.netlify/functions/generateResponse", { input });
-        console.log(response);
-        const botResponse = response.data.candidates[0].content.parts[0].text;
+        console.log("response", response);
+        const botResponse = response.data.response;
         setLoading(false);
         setMessages([...newMessages, { text: botResponse, user: false }]);
       } catch (error) {
