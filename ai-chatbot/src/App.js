@@ -69,7 +69,7 @@ function App() {
           </button>
         </div>
       </div>
-      <h2 className="absolute bottom-1 mt-2 text-xs sm:text-sm text-blue-50 text-center">
+      <h2 className="fixed bottom-0 left-0 w-full mt-2 text-xs sm:text-sm text-blue-50 text-center bg-gradient-to-r from-red-950 to-blue-900">
         The DecisionMaker9000 is extremely powerful and should only be used when your local Rishi is not available. Terms and conditions apply.
       </h2>
     </div>
