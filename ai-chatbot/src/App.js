@@ -44,7 +44,7 @@ function App() {
 
   return (
     <div className="flex flex-col justify-center items-center h-screen bg-gradient-to-r from-red-950 to-blue-900">
-      <h1 className="mb-8 font-bold text-[3rem] drop-shadow-lg text-blue-50">♥️ Rhea DecisionMaker9000  ♥️</h1>
+      <h1 className="mb-8 font-bold text-[3rem] drop-shadow-lg text-blue-50">💜 Rhea DecisionMaker9000  💜</h1>
       <div className="bg-white w-full max-w-lg shadow-lg rounded-lg overflow-hidden">
         <div className="p-4 h-96 overflow-y-auto">
           {messages.map((msg, index) => (
@@ -56,7 +56,13 @@ function App() {
               </div>
             </div>
           ))}
-          {loading}
+          {loading && (
+            <div className="loading-hearts">
+              <span className="heart">♥</span>
+              <span className="heart">♥</span>
+              <span className="heart">♥</span>
+            </div>
+          )}
         </div>
         <div className="p-4 border-t border-gray-200 flex">
           <input
@@ -75,6 +81,9 @@ function App() {
           </button>
         </div>
       </div>
+      <h2 className="absolute bottom-1 mt-2 text-[10px] text-blue-50">
+  The DecisionMaker9000 is extremely powerful and should only be used when your local Rishi is not available. Terms and conditions apply.
+</h2>
     </div>
   );
 }
