@@ -53,7 +53,7 @@ exports.handler = async (event) => {
         "Access-Control-Allow-Methods": "GET, POST, OPTIONS",  // Allowed HTTP methods
         "Access-Control-Allow-Headers": "Content-Type",  // Allowed headers
       },
-      body: JSON.stringify({ response: response.data.candidates[0].content.parts[0].text }),
+      body: JSON.stringify({ response: response.data.response }),
     };
   } catch (error) {
     return {
