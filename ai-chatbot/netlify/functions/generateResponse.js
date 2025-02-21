@@ -1,6 +1,21 @@
 const axios = require("axios");
 
 exports.handler = async (event) => {
+    console.log("HI")
+
+    if (event.httpMethod === "OPTIONS") {
+        return {
+            statusCode: 200,
+            headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET, POST, OPTIONS",  // Allowed HTTP methods
+            "Access-Control-Allow-Headers": "Content-Type",  // Allowed headers
+            },
+            body: "",
+        };
+    }
+
+
   try {
     const { input } = JSON.parse(event.body);
 
@@ -29,13 +44,23 @@ exports.handler = async (event) => {
       }
     );
 
+    console.log(response)
+
     return {
       statusCode: 200,
+      headers: {
+        "Access-Control-Allow-Origin": "*", 
+        "Access-Control-Allow-Methods": "GET, POST, OPTIONS",  // Allowed HTTP methods
+        "Access-Control-Allow-Headers": "Content-Type",  // Allowed headers
+      },
       body: JSON.stringify({ response: response.data.candidates[0].content.parts[0].text }),
     };
   } catch (error) {
     return {
       statusCode: 500,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+      },
       body: JSON.stringify({ error: "Failed to get a response from AI" }),
     };
   }
