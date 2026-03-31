@@ -19,7 +19,7 @@ exports.handler = async (event) => {
 
     const response = await axios.post(
       // FIX 1: Use gemini-3.1-flash-lite-preview (The fastest model in 2026)
-      "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent?key=" + process.env.GOOGLE_API_KEY,
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=" + process.env.GOOGLE_API_KEY,
       {
         contents: [
           {
@@ -39,11 +39,6 @@ exports.handler = async (event) => {
             ],
           },
         ],
-        // FIX 3: Disable/Limit "Thinking" level for Gemini 3 models to stay under 10s
-        generationConfig: {
-          maxOutputTokens: 120, // Prevents long-windedness & saves latency
-          temperature: 1.0,
-        },
       },
       { timeout: 9000 } // Local axios timeout just before Netlify kills it
     );
