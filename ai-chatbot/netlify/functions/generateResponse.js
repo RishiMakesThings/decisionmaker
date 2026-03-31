@@ -49,7 +49,7 @@ exports.handler = async (event) => {
         "Access-Control-Allow-Origin": "*",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ response: response.data.candidates.content.parts.text }),
+      body: JSON.stringify({ response: response.data.candidates[0].content.parts[0].text }),
     };
   } catch (error) {
     console.error("Gemini Error:", error.response?.data || error.message);
