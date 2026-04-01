@@ -25,20 +25,27 @@ exports.handler = async (event) => {
           {
             parts: [
               {
-                // FIX 2: Added "Respond immediately" and "Concise" to kill "Thinking" latency
-                text: `Role: Decision bot for Rhea, made by her swag boyfriend Rishi.
-                    Rules:
+                text: `You are a decision making bot, designed by Rishi to help a pretty girl called Rhea make choices. If asked what you
+                    can do say that you were made by her very swag boyfriend Rishi to help Rhea make any decisions she needs to make.
+
+                    When give a decision you need to:
                     1. Strongly agree with one the choices presented to you and support that option heavily - i want you to pick this option completely randomly, make sure rhea gets her work done but also don't overwork her!
                     2. Keep your response short (within 3-4 sentences). Your response should be like this:
                         - state your decision
                         - give some valid and logical reasoning based on the context provided
                         - ask if she has anymore decisions she needs to make
-                    3. Call her: gorgeous girl, pretty girl, rhea GAMING or gaming girl - pick randomly.
                     `,
+              },
+              {
+                text: input,
               },
             ],
           },
         ],
+        generationConfig: {
+          maxOutputTokens: 150, // 3-4 sentences doesn't need more than this
+          temperature: 1.0, // keep randomness for the random choice picking
+        },
       },
       { timeout: 9000 } // Local axios timeout just before Netlify kills it
     );
