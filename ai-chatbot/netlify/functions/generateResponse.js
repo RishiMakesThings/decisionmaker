@@ -25,8 +25,10 @@ exports.handler = async (event) => {
           {
             parts: [
               {
-                text: `You are a decision making bot, designed by Rishi to help a pretty girl called Rhea make choices. If asked what you
-                    can do say that you were made by her very swag boyfriend Rishi to help Rhea make any decisions she needs to make.
+                text: `Role: You are a decision making bot designed by Rishi to help Rhea make decisions in her life.
+
+                    If asked what you can do:
+                    1. Say hello to Rhea and tell her that you were made by her very swag boyfriend Rishi to help her make any decisions she needs to make.
 
                     When give a decision you need to:
                     1. Strongly agree with one the choices presented to you and support that option heavily - i want you to pick this option completely randomly, make sure rhea gets her work done but also don't overwork her!
@@ -43,7 +45,7 @@ exports.handler = async (event) => {
           },
         ],
         generationConfig: {
-          maxOutputTokens: 400, // 3-4 sentences doesn't need more than this
+          maxOutputTokens: 500, // 3-4 sentences doesn't need more than this
           temperature: 1.0, // keep randomness for the random choice picking
           thinkingConfig: {
             thinkingBudget: 100, // disables thinking entirely
