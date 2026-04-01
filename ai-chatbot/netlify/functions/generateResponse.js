@@ -45,6 +45,9 @@ exports.handler = async (event) => {
         generationConfig: {
           maxOutputTokens: 400, // 3-4 sentences doesn't need more than this
           temperature: 1.0, // keep randomness for the random choice picking
+          thinkingConfig: {
+            thinkingBudget: 100, // disables thinking entirely
+          },
         },
       },
       { timeout: 9000 } // Local axios timeout just before Netlify kills it
