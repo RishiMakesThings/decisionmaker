@@ -43,7 +43,7 @@ exports.handler = async (event) => {
           },
         ],
         generationConfig: {
-          maxOutputTokens: 150, // 3-4 sentences doesn't need more than this
+          maxOutputTokens: 400, // 3-4 sentences doesn't need more than this
           temperature: 1.0, // keep randomness for the random choice picking
         },
       },
